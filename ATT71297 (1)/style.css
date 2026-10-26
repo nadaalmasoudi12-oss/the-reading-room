@@ -1,0 +1,1162 @@
+
+/* =========================
+   THE READING ROOM
+   Global Design System
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+    --background: #FAF8F5;
+    --surface: #FFFFFF;
+    --surface-soft: #F1ECE5;
+    --primary: #6F5B4B;
+    --primary-dark: #4D3E32;
+    --text: #292622;
+    --muted: #756E66;
+    --border: #E6DED5;
+    --shadow: 0 8px 28px rgba(50, 40, 30, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: 'DM Sans', Arial, sans-serif;
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    line-height: 1.3;
+    margin-top: 0;
+}
+
+p {
+    margin-top: 0;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+}
+
+/* =========================
+   Navigation
+========================= */
+
+header {
+    background: rgba(250, 248, 245, 0.97);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 28px;
+    color: var(--primary-dark);
+    margin: 0;
+    font-weight: 600;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+    color: var(--primary-dark);
+}
+
+/* =========================
+   Shared Components
+========================= */
+
+.btn {
+    display: inline-block;
+    padding: 13px 27px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.section-label,
+.hero-label {
+    display: block;
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.section-heading h2 {
+    font-size: clamp(28px, 4vw, 38px);
+    margin-bottom: 12px;
+}
+
+.section-description {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.section-action {
+    text-align: center;
+    margin-top: 38px;
+}
+
+/* =========================
+   Home - Hero
+========================= */
+
+.hero {
+    max-width: 1200px;
+    margin: auto;
+    min-height: 510px;
+    padding: 85px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 570px;
+}
+
+.hero-text h2 {
+    font-size: clamp(40px, 5vw, 66px);
+    font-weight: 600;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+}
+
+.hero-text > p:not(.hero-label) {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 460px;
+    margin-bottom: 30px;
+}
+
+.hero-gif {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+}
+
+.hero-gif img {
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    display: block;
+    border-radius: 14px;
+    object-fit: contain;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.hero-gif img:hover {
+    transform: scale(1.02);
+}
+
+/* =========================
+   Explore by Genre
+========================= */
+
+.genres-section {
+    background: var(--surface-soft);
+    padding: 85px 30px;
+}
+
+.genres-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.genre-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 34px 26px;
+    text-decoration: none;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.genre-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.genre-card h3 {
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.genre-card p {
+    color: var(--muted);
+    font-size: 14px;
+    min-height: 48px;
+}
+
+.genre-card span {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* =========================
+   Featured Books
+========================= */
+
+.books-preview {
+    max-width: 1200px;
+    margin: auto;
+    padding: 85px 30px;
+}
+
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.book-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s, box-shadow 0.25s;
+    min-width: 0;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(50, 40, 30, 0.11);
+}
+
+.book-card > img {
+    display: block;
+    width: 100%;
+    height: 290px;
+    object-fit: contain;
+    background: #F3F0EB;
+    padding: 18px;
+}
+
+.book-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.book-genre {
+    display: inline-block;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.book-info h3 {
+    font-size: 22px;
+    margin: 0 0 8px;
+}
+
+.book-author,
+.book-year {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.book-description {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 14px 0 22px;
+}
+
+.book-link {
+    margin-top: auto;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.book-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   Book of the Week
+========================= */
+
+.book-of-week {
+    background: var(--surface-soft);
+    padding: 85px 30px;
+}
+
+.weekly-book-container {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.weekly-book-image {
+    text-align: center;
+}
+
+.weekly-book-image img {
+    width: 100%;
+    max-width: 310px;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+}
+
+.weekly-book-content h2 {
+    font-size: 35px;
+    margin-bottom: 22px;
+}
+
+.weekly-book-content h3 {
+    font-size: 29px;
+    margin-bottom: 10px;
+}
+
+.weekly-description,
+.weekly-note {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 22px;
+}
+
+/* =========================
+   Discover More
+========================= */
+
+.discover-section {
+    text-align: center;
+    padding: 95px 30px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.discover-section h2 {
+    font-size: clamp(30px, 4vw, 43px);
+    margin-bottom: 20px;
+}
+
+.discover-section p {
+    color: var(--muted);
+    max-width: 580px;
+    margin: 0 auto 30px;
+}
+
+/* =========================
+   Explore Books Page
+========================= */
+
+.library-intro {
+    text-align: center;
+    padding: 80px 25px 45px;
+}
+
+.library-intro h1 {
+    font-size: clamp(36px, 5vw, 52px);
+    margin-bottom: 18px;
+}
+
+.library-intro p {
+    color: var(--muted);
+    max-width: 560px;
+    margin: auto;
+}
+
+.library-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 30px 90px;
+}
+
+.library-controls {
+    background: var(--surface);
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.library-controls label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+#searchInput {
+    display: block;
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--background);
+    color: var(--text);
+    margin-bottom: 22px;
+}
+
+#searchInput:focus {
+    border-color: var(--primary);
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.categories button {
+    border: 1px solid var(--border);
+    background: var(--background);
+    color: var(--muted);
+    border-radius: 30px;
+    padding: 9px 18px;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.categories button:hover,
+.categories button.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+#resultsCount {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 20px 0;
+}
+
+#emptyMessage {
+    text-align: center;
+    color: var(--muted);
+    padding: 50px 15px;
+}
+
+#emptyMessage[hidden] {
+    display: none;
+}
+
+.favorite-btn {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+    padding: 11px 15px;
+    background: var(--surface-soft);
+    color: var(--primary-dark);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.favorite-btn:hover,
+.favorite-btn[aria-pressed="true"] {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+/* =========================
+   About Page - Basic Support
+========================= */
+
+.about-page {
+    max-width: 1000px;
+    margin: auto;
+    padding: 70px 30px;
+}
+
+.about-page h2,
+.about-page h3 {
+    color: var(--primary-dark);
+}
+
+.about-page p {
+    color: var(--muted);
+}
+
+/* =========================
+   Footer
+========================= */
+
+.site-footer,
+footer {
+    background: #302A25;
+    color: #F5F0E9;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 65px 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.3fr;
+    gap: 55px;
+}
+
+.footer-container h3 {
+    font-size: 24px;
+}
+
+.footer-container h4 {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.footer-container p {
+    color: #D2C8BE;
+    font-size: 13px;
+    max-width: 280px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: #D2C8BE;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+    padding: 22px;
+}
+
+.footer-bottom p,
+footer > p {
+    margin: 0;
+    font-size: 12px;
+    color: #D2C8BE;
+}
+
+footer > p {
+    text-align: center;
+    padding: 25px;
+}
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width: 900px) {
+    .hero {
+        gap: 35px;
+    }
+
+    .books-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .weekly-book-container {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        flex-direction: column;
+        padding: 18px;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 55px 20px;
+        gap: 35px;
+    }
+
+    .hero-text > p:not(.hero-label) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-text h2 {
+        font-size: 40px;
+    }
+
+    .hero-gif img {
+        max-width: 300px;
+    }
+
+    .genres-section,
+    .books-preview,
+    .book-of-week {
+        padding: 60px 20px;
+    }
+
+    .genres-container {
+        grid-template-columns: 1fr;
+    }
+
+    .books-container {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .book-card > img {
+        height: 310px;
+    }
+
+    .weekly-book-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .weekly-book-content h2 {
+        font-size: 30px;
+    }
+
+    .library-intro {
+        padding: 55px 20px 35px;
+    }
+
+    .library-section {
+        padding: 10px 20px 65px;
+    }
+
+    .library-controls {
+        padding: 20px;
+    }
+
+    .discover-section {
+        padding: 70px 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 45px 25px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* =========================
+   About Page Enhancements
+========================= */
+
+.about-page {
+    max-width: 1100px;
+    margin: auto;
+    padding: 75px 30px;
+}
+
+.about-page > .section-heading {
+    margin-bottom: 75px;
+}
+
+.about-page > .section-heading h1 {
+    font-size: clamp(36px, 5vw, 52px);
+    margin-bottom: 20px;
+}
+
+.about-story,
+.about-mission,
+.about-philosophy {
+    max-width: 800px;
+    margin: 0 auto 85px;
+}
+
+.about-page h2 {
+    font-size: clamp(27px, 4vw, 36px);
+    margin-bottom: 22px;
+}
+
+.about-page p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.about-features {
+    margin-bottom: 85px;
+}
+
+.about-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.about-feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.about-feature-card h3 {
+    font-size: 21px;
+    margin-bottom: 14px;
+    color: var(--primary-dark);
+}
+
+.about-feature-card p {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.about-philosophy {
+    background: var(--surface-soft);
+    border-radius: 12px;
+    padding: 45px;
+    max-width: 100%;
+}
+
+.about-cta {
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.about-cta p {
+    margin-bottom: 28px;
+}
+
+@media (max-width: 650px) {
+    .about-page {
+        padding: 55px 20px;
+    }
+
+    .about-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-story,
+    .about-mission,
+    .about-philosophy,
+    .about-features {
+        margin-bottom: 60px;
+    }
+
+    .about-philosophy {
+        padding: 28px 22px;
+    }
+}
+
+/* =========================
+   Contact Page
+========================= */
+
+.contact-intro {
+    text-align: center;
+    padding: 80px 25px 45px;
+}
+
+.contact-intro h1 {
+    font-size: clamp(36px, 5vw, 52px);
+    margin-bottom: 18px;
+}
+
+.contact-intro p {
+    color: var(--muted);
+    max-width: 570px;
+    margin: 0 auto;
+}
+
+.contact-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 35px 30px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 75px;
+    align-items: start;
+}
+
+.contact-info h2 {
+    font-size: 35px;
+    margin-bottom: 22px;
+}
+
+.contact-info > p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.contact-note {
+    background: var(--surface-soft);
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 35px;
+}
+
+.contact-note h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.contact-note p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.contact-form-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 38px;
+    box-shadow: var(--shadow);
+}
+
+.contact-form-container h2 {
+    font-size: 29px;
+    margin-bottom: 10px;
+}
+
+.contact-form-container > p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--background);
+    color: var(--text);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+}
+
+.contact-submit {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 7px;
+    background: var(--primary);
+    color: white;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.contact-submit:hover {
+    background: var(--primary-dark);
+}
+
+#formStatus {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 750px) {
+    .contact-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 20px 20px 70px;
+    }
+
+    .contact-intro {
+        padding: 55px 20px 30px;
+    }
+
+    .contact-form-container {
+        padding: 25px;
+    }
+}
+
+/* Fix Book Details Layout */
+
+.details-container {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    align-items: start;
+    justify-content: center;
+    gap: 45px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.details-cover {
+    width: 100%;
+    max-width: 250px;
+    height: 350px;
+    object-fit: contain;
+    padding: 12px;
+    border-radius: 10px;
+    background: #F1ECE5;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.details-content {
+    min-width: 0;
+}
+
+.details-content h1 {
+    font-size: 36px;
+}
+
+@media (max-width: 650px) {
+    .details-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .details-cover {
+        width: 220px;
+        height: 310px;
+        margin: 0 auto;
+    }
+
+    .details-content h1 {
+        font-size: 30px;
+    }
+}
+
+/* Fix book details text layout */
+
+
+.details-container {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.details-cover {
+    width: 100%;
+    min-width: 0;
+}
+
+.details-cover img {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    object-fit: contain;
+}
+
+.details-content {
+    width: 100%;
+    min-width: 0;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+    line-height: 1.8;
+}
+
+.details-content h1 {
+    width: 100%;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+@media (max-width: 700px) {
+    .details-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Final fix for book details */
+#bookDetails {
+    width: 100%;
+    max-width: 100%;
+}
+
+.details-container {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.details-content {
+    width: 100%;
+    min-width: 0;
+}
+
+.details-content h1,
+.details-content h2,
+.details-content p,
+.details-content a,
+.details-content li {
+    width: auto;
+    max-width: 100%;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+    writing-mode: horizontal-tb;
+}
+
+.details-cover img {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+}
+
+@media (max-width: 650px) {
+    .details-container {
+        grid-template-columns: 1fr;
+    }
+}
